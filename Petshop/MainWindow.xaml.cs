@@ -28,6 +28,11 @@ namespace Petshop
         public MainWindow()
         {
             InitializeComponent();
+            if(!WindowManager._main)
+            {
+                WindowManager._MainWindow = this;
+                WindowManager._main = true;
+            }
         }
 
         private void Username_Box_GotFocus(object sender, RoutedEventArgs e)
@@ -58,7 +63,13 @@ namespace Petshop
         {
             if(Password_Box.Text == Password && Username_Box.Text == Username)
             {
-                Environment.Exit(0);
+                if(!WindowManager._dash)
+                {
+                    WindowManager._dash = true;
+                    WindowManager.Dash = new Main();
+                    WindowManager.Dash.Show();
+                    this.Close();
+                }
             }
             else
             {
