@@ -22,21 +22,27 @@ namespace Petshop
         public Main()
         {
             InitializeComponent();
-            string[] a = new string[6] {"Dashboard" , "Pets", "Supplies" , "Users", "Logs" , "Options"};
-            foreach(string s in a) 
-            {
-                Listbx.Items.Add(s);
-            }
-            Listbx.SelectedIndex = 0;
+            MainFrame.Content = new DashBoard();
         }
 
         private void Listbx_Selected(object sender, RoutedEventArgs e)
         {
-            if(Listbx.SelectedItem == "Dashboard") 
-            {
-                Dashboard.Opacity = 100;
-                Dashboard.IsEnabled = true;
-            }
+          
+        }
+
+        private void DashBoard_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DashBoard();
+        }
+
+        private void Pets_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Pets();
+        }
+
+        private void Supplies_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Supplies();
         }
     }
 }

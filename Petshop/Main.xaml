@@ -7,31 +7,24 @@
         mc:Ignorable="d"
         Title="Main" Height="450" Width="800">
     <Grid>
-        <ListBox FontSize="20" Name="Listbx" Margin="0,79,645,0" Selected="Listbx_Selected">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding}" Margin="0 0 0 5"/>
-                        <TextBlock Text="" Margin="0"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Grid Name="Dashboard" Opacity="100" IsEnabled="False">
-            <Rectangle HorizontalAlignment="Left" Height="100" Margin="190,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="180"/>
-            <Rectangle HorizontalAlignment="Left" Height="100" Margin="400,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="180"/>
-            <Rectangle HorizontalAlignment="Left" Height="100" Margin="610,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="180"/>
-            <Rectangle HorizontalAlignment="Left" Height="100" Margin="190,217,0,0" Stroke="Black" VerticalAlignment="Top" Width="180"/>
-            <TextBlock HorizontalAlignment="Left" Margin="197,100,0,0" TextWrapping="Wrap" Text="Pets"  FontSize="30" VerticalAlignment="Top" Width="152"/>
-            <TextBlock HorizontalAlignment="Left" Margin="619,100,0,0" TextWrapping="Wrap" Text="Supplies"  FontSize="30" VerticalAlignment="Top" Width="152"/>
-            <TextBlock HorizontalAlignment="Left" Margin="407,100,0,0" TextWrapping="Wrap" Text="Users"  FontSize="30" VerticalAlignment="Top" Width="152"/>
-            <TextBlock HorizontalAlignment="Left" Margin="197,227,0,0" TextWrapping="Wrap" Text="Logs"  FontSize="30" VerticalAlignment="Top" Width="152"/>
-            <TextBlock HorizontalAlignment="Left" Margin="316,140,0,0" TextWrapping="Wrap" Text="X" FontSize="25" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="526,140,0,0" TextWrapping="Wrap" Text="X" FontSize="25" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="743,140,0,0" TextWrapping="Wrap" Text="X" FontSize="25" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="309,267,0,0" TextWrapping="Wrap" Text="X" FontSize="25" VerticalAlignment="Top"/>
-
-        </Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="141*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68*"/>
+            <RowDefinition Height="149*"/>
+        </Grid.RowDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="363" Margin="49,71,0,0" Stroke="Black" VerticalAlignment="Top" Width="656" Grid.RowSpan="2" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="71" Margin="49,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="656" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="110" Margin="0,71,0,0" Stroke="Black" VerticalAlignment="Top" Width="144" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="119" Margin="0,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="144" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="134" Margin="0,164,0,0" Stroke="Black" VerticalAlignment="Top" Width="144" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" FontSize="20" Text="Navigation" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button Content="DashBoard" Name="DashBoard_Button" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Click="DashBoard_Button_Click"/>
+        <Frame Content="" Name="MainFrame" Margin="49,71,1,0" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button Content="Pets" x:Name="Pets_Button" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"  Grid.RowSpan="2" Click="Pets_Button_Click"/>
+        <Button Content="Supplies" x:Name="Supplies_Button" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"  Grid.Row="1" Click="Supplies_Button_Click"/>
     </Grid>
+
 </Window>
