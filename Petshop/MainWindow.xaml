@@ -5,13 +5,148 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Petshop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox HorizontalAlignment="Center" Name="Username_Box" Margin="0,158,0,0" FontSize="26" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="280" Height="38" GotFocus="Username_Box_GotFocus" LostFocus="Username_Box_LostFocus" />
-        <TextBox HorizontalAlignment="Center" Margin="0,233,0,0" Name="Password_Box" FontSize="26" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="280" Height="38" GotFocus="Password_Box_GotFocus" LostFocus="Password_Box_LostFocus"/>
-        <Button Content="Forgot Password?" Name="Forgot_Password_Button" HorizontalAlignment="Left" Margin="443,271,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Click="Forgot_Password_Button_Click"/>
-        <Button Content="Login" HorizontalAlignment="Center" Margin="0,312,0,0" VerticalAlignment="Top" Height="36" Width="158" Background="#FF2414E4" Foreground="White" Click="Button_Click"/>
+        Title="Pet Shop Login" Height="500" Width="700" MinHeight="500" MinWidth="700" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="#FF98C3D9">
+
+        <StackPanel VerticalAlignment="Center">
+
+            <TextBlock 
+                Text="Welcome to Pet Shop" 
+                FontSize="64" 
+                FontFamily="Governor Regular" 
+                HorizontalAlignment="Center"
+                Margin="0,15,0,0" 
+                Foreground="#FF380078"/>
+            <Image 
+                Source="Assets\logo.png" 
+                Margin="0,0,0,10"
+                MaxHeight="200"/>
+
+            <TextBox Name="Username_Box" 
+                     Text="Username    "
+                     FontSize="18"                                         
+                     FontFamily="Helvetica Rounded LT Std"   
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     GotFocus="Username_Box_GotFocus" 
+                     LostFocus="Username_Box_LostFocus" 
+                     Margin="0,10,0,0"   
+                     Width="250" 
+                     Height="30" 
+                     Foreground="#FF8F8FB3"
+                     BorderBrush="#FF380078" 
+                     BorderThickness="3">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBox Name="Password_Box" 
+                     Text="Password    "                      
+                     FontSize="18"    
+                     FontFamily="Helvetica Rounded LT Std"
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     GotFocus="Password_Box_GotFocus" 
+                     LostFocus="Password_Box_LostFocus" 
+                     Margin="0,10,0,0" 
+                     Width="250"
+                     Height="30" 
+                     Foreground="#FF8F8FB3"
+                     BorderBrush="#FF380078" 
+                     BorderThickness="3" 
+                     PreviewKeyDown="Password_Box_PreviewKeyDown" 
+                     PreviewTextInput="Password_Box_PreviewTextInput" 
+                     TextChanged="Password_Box_TextChanged">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,2,15" Width="245">
+                <CheckBox x:Name="ShowPasswordCheckbox" 
+                          Content="Show Password" 
+                          Checked="ShowPassword_Checked" 
+                          Unchecked="ShowPassword_Unchecked"
+                          VerticalAlignment="Center"
+                          Margin="0,0,24,0">
+                    <CheckBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="3"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Style>
+                    </CheckBox.Resources>
+                </CheckBox>
+
+                <Button Name="Forgot_Password_Button"              
+                        Content="Forgot Password?" 
+                        Click="Forgot_Password_Button_Click"
+                        VerticalAlignment="Center"
+                        Margin="25,0,0,0" 
+                        BorderBrush="Transparent" 
+                        Background="Transparent" 
+                        MouseEnter="Forgot_Password_Button_MouseEnter" 
+                        MouseLeave="Forgot_Password_Button_MouseLeave">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
 
 
+            <Button x:Name="Login_Button"
+                    Content="LOGIN" 
+                    Click="Login_Button_Click" 
+                    FontSize="23"
+                    FontFamily="Governor Regular"
+                    HorizontalAlignment="Center" 
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Margin="0,0,0,15"
+                    Height="36"
+                    Width="120" 
+                    Background="#FFFFAD41" 
+                    Foreground="#FF380078"                                         
+                    BorderBrush="#FF380078" 
+                    BorderThickness="4">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="0,4,0,0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
     </Grid>
 </Window>
